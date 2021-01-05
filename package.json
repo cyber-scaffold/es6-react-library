@@ -1,12 +1,11 @@
 {
-  "name": "@write-board/components",
+  "name": "es6-react-library",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/",
   "scripts": {
-    "test": "gulp",
-    "build": "babel src --out-dir dist --source-maps",
-    "watch": "babel src --out-dir dist --source-maps --watch"
+    "watch": "gulp --f gulpfile.watch.js",
+    "build": "gulp --f gulpfile.build.js"
   },
   "keywords": [
     "cyber",
