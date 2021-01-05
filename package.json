@@ -1,9 +1,10 @@
 {
-  "name": "es6-babel-library",
+  "name": "@write-board/components",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/",
   "scripts": {
+    "test": "gulp",
     "build": "babel src --out-dir dist --source-maps",
     "watch": "babel src --out-dir dist --source-maps --watch"
   },
@@ -16,11 +17,14 @@
   "devDependencies": {
     "@cyber-tools/preset-babel-option": "latest",
     "babel-plugin-css-modules-transform": "^1.6.2",
-    "babel-plugin-file-loader": "^2.0.0",
     "deep-extend": "^0.6.0",
     "eslint": "^7.4.0",
     "eslint-plugin-react": "^7.20.3",
-    "node-sass": "^5.0.0"
+    "gulp": "4.0.2",
+    "gulp-cli": "2.3.0",
+    "gulp-babel": "8.0.0",
+    "gulp-watch": "5.0.1",
+    "node-sass": "4.14.1"
   },
   "dependencies": {
     "classnames": "^2.2.6",
