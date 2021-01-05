@@ -2,7 +2,7 @@
   "name": "es6-babel-library",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "./dist/",
   "scripts": {
     "build": "babel src --out-dir dist --source-maps",
     "watch": "babel src --out-dir dist --source-maps --watch"
