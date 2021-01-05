@@ -1,0 +1,33 @@
+{
+  "name": "es6-babel-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist --source-maps",
+    "watch": "babel src --out-dir dist --source-maps --watch"
+  },
+  "keywords": [
+    "cyber",
+    "shicheng.yu"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cyber-tools/preset-babel-option": "latest",
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "babel-plugin-file-loader": "^2.0.0",
+    "deep-extend": "^0.6.0",
+    "eslint": "^7.4.0",
+    "eslint-plugin-react": "^7.20.3",
+    "node-sass": "^5.0.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.19",
+    "moment": "^2.27.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "uuid": "^8.2.0"
+  }
+}
