@@ -4,18 +4,18 @@ const path = require("path");
 const babel = require("gulp-babel");
 
 function static_task(){
-  const watch_pattern=path.resolve(__dirname,"./src/**/*.{png,jpg,jpeg,gif,svg}");
-  const gulp_task=gulp.src(watch_pattern);
-  gulp_task.pipe(gulp.dest("dist"));
-  return gulp_task;
+  const watch_pattern=path.resolve(__dirname,"./src/**/*.{css,png,jpg,jpeg,gif,svg,eot,svg,ttf,woff,woff2,json}");
+  return gulp
+    .src(watch_pattern)
+    .pipe(gulp.dest("dist"));
 }
 
 function bebel_task(){
   const watch_pattern=path.resolve(__dirname,"./src/**/*.{js,jsx}");
-  const gulp_task=gulp.src(watch_pattern);
-  gulp_task.pipe(babel());
-  gulp_task.pipe(gulp.dest("dist"));
-  return gulp_task;
+  return gulp
+    .src(watch_pattern)
+    .pipe(babel())
+    .pipe(gulp.dest("dist"));
 }
 
-exports.default=gulp.parallel(static_task,bebel_task);
+exports.default=gulp.parallel(bebel_task,static_task);
