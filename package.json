@@ -4,8 +4,9 @@
   "description": "",
   "main": "./",
   "scripts": {
-    "watch": "del dist && gulp --f gulpfile.watch.js",
-    "build": "del dist && gulp --f gulpfile.build.js"
+    "remove": "del dist",
+    "watch": "gulp --f gulpfile.watch.js",
+    "build": "gulp --f gulpfile.build.js"
   },
   "keywords": [
     "cyber",
