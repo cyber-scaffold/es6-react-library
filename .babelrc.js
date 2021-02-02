@@ -1,25 +1,26 @@
-/* eslint-disable*/
-const path = require("path");
-// const sass = require("node-sass");
+/* eslint-disable */
 const deepExtend = require("deep-extend");
-const babel_config = require("@cyber-tools/preset-babel-option");
+const basic_babel_config = require("@cyber-tools/preset-babel-option");
 
 
-module.exports = deepExtend(babel_config, {
+module.exports = deepExtend(basic_babel_config, {
   plugins: [
-    ["babel-plugin-css-modules-transform", {
+    [require.resolve("babel-plugin-css-modules-transform"), {
       devMode: true,
       keepImport: true,
       extensions: [".scss"],
       generateScopedName: "[name]__[local]___[hash:8]",
-      // "preprocessCss": (styleText, filename) => {
-      //   const result = sass.renderSync({ data: styleText, file: filename });
-      //   return result.css;
-      // },
       extractCss: {
         dir: "./dist/",
         relativeRoot: "./src/",
         filename: "[path]/[name].scss"
+      }
+    }],
+    [require.resolve("babel-plugin-module-resolver"),{
+      root: ["./src/"],
+      alias: {
+        "@": "./src/",
+        "@@":"./"
       }
     }]
   ]

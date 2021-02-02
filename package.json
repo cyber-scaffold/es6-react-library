@@ -2,10 +2,10 @@
   "name": "es6-react-library",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/",
+  "main": "./",
   "scripts": {
-    "watch": "gulp --f gulpfile.watch.js",
-    "build": "gulp --f gulpfile.build.js"
+    "watch": "del dist && gulp --f gulpfile.watch.js",
+    "build": "del dist && gulp --f gulpfile.build.js"
   },
   "keywords": [
     "cyber",
@@ -14,18 +14,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cyber-tools/preset-babel-option": "latest",
-    "babel-plugin-css-modules-transform": "^1.6.2",
-    "deep-extend": "^0.6.0",
+    "del-cli": "^3.0.1",
     "eslint": "^7.4.0",
-    "eslint-plugin-react": "^7.20.3",
     "gulp": "4.0.2",
     "gulp-babel": "8.0.0",
     "gulp-cli": "2.3.0",
     "gulp-watch": "5.0.1",
-    "node-sass": "4.14.1"
+    "eslint-plugin-react": "^7.20.3",
+    "@cyber-tools/preset-babel-option": "latest",
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "babel-plugin-module-resolver": "^4.1.0"
   },
   "dependencies": {
+    "deep-extend": "^0.6.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.19",
     "moment": "^2.27.0",
