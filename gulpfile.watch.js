@@ -6,7 +6,7 @@ const babel = require("gulp-babel");
 
 
 function static_task(){
-  const watch_pattern=path.resolve(__dirname,"./src/**/*.{png,jpg,jpeg,gif,svg}");
+  const watch_pattern=path.resolve(__dirname,"./src/**/*.{css,png,jpg,jpeg,gif,svg,eot,svg,ttf,woff,woff2,json}");
   const watcher=watch(watch_pattern,{ignoreInitial:false},()=>{
     gulp
       .src(watch_pattern,{sourcemaps:true})
