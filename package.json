@@ -2,7 +2,7 @@
   "name": "es6-react-library",
   "version": "1.0.0",
   "description": "",
-  "main": "./",
+  "main": "./dist/",
   "scripts": {
     "remove": "del dist",
     "watch": "gulp --f gulpfile.watch.js",
