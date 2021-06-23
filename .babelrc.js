@@ -7,12 +7,7 @@ basic_babel_config.plugins.push([require.resolve("babel-plugin-css-modules-trans
   devMode: true,
   keepImport: true,
   extensions: [".scss"],
-  generateScopedName: "[name]__[local]___[hash:8]",
-  extractCss: {
-    dir: "./dist/",
-    relativeRoot: "./src/",
-    filename: "[path]/[name].scss"
-  }
+  generateScopedName: "[name]__[local]___[hash:8]"
 }]);
 
 basic_babel_config.plugins.push([require.resolve("babel-plugin-module-resolver"), {
@@ -38,10 +33,10 @@ basic_babel_config.plugins.push([require.resolve("babel-plugin-import"),{
  * @description 按需加载antd-mobile组件库
  * @link https://www.npmjs.com/package/babel-plugin-import
  * **/
-basic_babel_config.plugins.push([require.resolve("babel-plugin-import"),{
-   libraryName: "antd-mobile",
-   libraryDirectory: "es",
-   style: true
-},"antd-mobile"]);
+// basic_babel_config.plugins.push([require.resolve("babel-plugin-import"),{
+//    libraryName: "antd-mobile",
+//    libraryDirectory: "es",
+//    style: true
+// },"antd-mobile"]);
 
 module.exports = basic_babel_config

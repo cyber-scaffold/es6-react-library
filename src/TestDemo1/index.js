@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 
-import css from "./style.less";
+import css from "./style.scss";
 
 export default function TestDemo1() {
   return (
