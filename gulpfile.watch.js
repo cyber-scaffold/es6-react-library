@@ -4,7 +4,7 @@ const path=require("path");
 const watch=require("gulp-watch");
 const babel=require("gulp-babel");
 const postcss = require("gulp-postcss");
-const postcssModules=require("postcss-modules");
+// const postcssModules=require("postcss-modules");
 const pxtoviewport = require("postcss-px-to-viewport");
 const postcss_scss=require("postcss-scss");
 
@@ -19,7 +19,7 @@ function static_task(){
 
 function bebel_task(){
   const source_pattern=path.resolve(__dirname,"./src/**/*.{js,jsx}");
-  const gulp_source=gulp.src(source_pattern,{sourcemaps:false});
+  const gulp_source=gulp.src(source_pattern,{sourcemaps:true});
   gulp_source
     .pipe(watch(source_pattern,{ignoreInitial:false}))
     .pipe(babel())
@@ -28,15 +28,14 @@ function bebel_task(){
 }
 
 function postcss_task(){
-  const source_pattern=path.resolve(__dirname,"./src/**/*.scss");
+  const source_pattern=path.resolve(__dirname,"./dist/**/*.scss");
   const gulp_source=gulp.src(source_pattern,{sourcemaps:false});
   gulp_source
-    .pipe(watch(source_pattern,{ignoreInitial:false}))
     .pipe(postcss([
-      postcssModules({
-        getJSON:()=>{},
-        generateScopedName: "[name]__[local]___[hash:8]"
-      }),
+      // postcssModules({
+      //   getJSON:()=>{},
+      //   generateScopedName: "[name]__[local]___[hash:8]"
+      // }),
       pxtoviewport({
         viewportWidth: 750, // (Number) The width of the viewport.
         viewportHeight: 1624, // (Number) The height of the viewport.
@@ -52,6 +51,11 @@ function postcss_task(){
     .pipe(gulp.dest("dist"))
   return gulp_source;
 }
+
+const watcher=gulp.watch(path.resolve(__dirname,"./src/**/*.scss"));
+watcher.on('add', gulp.series(bebel_task,postcss_task));
+watcher.on('change', gulp.series(bebel_task,postcss_task));
+watcher.on('unlink', gulp.series(bebel_task,postcss_task));
 
 exports.default=gulp.series(gulp.parallel(static_task,bebel_task),postcss_task);
 

@@ -7,7 +7,12 @@ basic_babel_config.plugins.push([require.resolve("babel-plugin-css-modules-trans
   devMode: true,
   keepImport: true,
   extensions: [".scss"],
-  generateScopedName: "[name]__[local]___[hash:8]"
+  generateScopedName: "[name]__[local]___[hash:8]",
+  extractCss: {
+    dir: "./dist/",
+    relativeRoot: "./src/",
+    filename: "[path]/[name].scss"
+  }
 }]);
 
 basic_babel_config.plugins.push([require.resolve("babel-plugin-module-resolver"), {

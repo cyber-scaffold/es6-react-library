@@ -3,7 +3,7 @@ const gulp = require("gulp");
 const path = require("path");
 const babel = require("gulp-babel");
 const postcss = require("gulp-postcss");
-const postcssModules=require("postcss-modules");
+// const postcssModules=require("postcss-modules");
 const pxtoviewport = require("postcss-px-to-viewport");
 const postcss_scss=require("postcss-scss");
 
@@ -23,14 +23,14 @@ function bebel_task(){
 }
 
 function postcss_task(){
-  const source_pattern=path.resolve(__dirname,"./src/**/*.scss");
+  const source_pattern=path.resolve(__dirname,"./dist/**/*.scss");
   return gulp_source=gulp
     .src(source_pattern,{sourcemaps:false})
     .pipe(postcss([
-      postcssModules({
-        getJSON:()=>{},
-        generateScopedName: "[name]__[local]___[hash:8]"
-      }),
+      // postcssModules({
+      //   getJSON:()=>{},
+      //   generateScopedName: "[name]__[local]___[hash:8]"
+      // }),
       pxtoviewport({
         viewportWidth: 750, // (Number) The width of the viewport.
         viewportHeight: 1624, // (Number) The height of the viewport.
