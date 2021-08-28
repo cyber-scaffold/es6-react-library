@@ -4,7 +4,7 @@
   "description": "",
   "main": "./dist/",
   "scripts": {
-    "remove": "del dist",
+    "remove": "trash ./dist/",
     "watch": "gulp --f gulpfile.watch.js",
     "build": "gulp --f gulpfile.build.js"
   },
@@ -23,7 +23,7 @@
     "babel-plugin-css-modules-transform": "1.6.2",
     "babel-plugin-import": "1.13.3",
     "babel-plugin-module-resolver": "4.1.0",
-    "del-cli": "3.0.1",
+    "trash-cli": "3.1.0",
     "eslint": "7.4.0",
     "eslint-plugin-react": "7.20.3",
     "gulp": "4.0.2",
