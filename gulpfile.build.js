@@ -1,9 +1,11 @@
 /* eslint-disable no-undef */
+const fs=require("fs");
+const {promisify}=require("util");
 const gulp = require("gulp");
 const path = require("path");
 const babel = require("gulp-babel");
 const postcss = require("gulp-postcss");
-// const postcssModules=require("postcss-modules");
+const postcssModules=require("postcss-modules");
 const pxtoviewport = require("postcss-px-to-viewport");
 const postcss_scss=require("postcss-scss");
 
@@ -23,14 +25,21 @@ function bebel_task(){
 }
 
 function postcss_task(){
-  const source_pattern=path.resolve(__dirname,"./dist/**/*.scss");
+  const source_pattern=path.resolve(__dirname,"./src/**/*.scss");
   return gulp_source=gulp
     .src(source_pattern,{sourcemaps:false})
     .pipe(postcss([
-      // postcssModules({
-      //   getJSON:()=>{},
-      //   generateScopedName: "[name]__[local]___[hash:8]"
-      // }),
+      postcssModules({
+        getJSON:async (cssFileName,json)=>{
+          const src_dirpath=path.resolve(__dirname,"./src/");
+          const dist_dirpath=path.resolve(__dirname,"./dist/");
+          const dirname=path.dirname(cssFileName);
+          const basename=path.basename(cssFileName);
+          const finally_outdir_path=[path.join(dirname.replace(src_dirpath,dist_dirpath),basename),"json"].join(".");
+          await promisify(fs.writeFile)(finally_outdir_path,JSON.stringify(json,null,"\t"));
+        },
+        generateScopedName: "[name]__[local]___[hash:8]"
+      }),
       pxtoviewport({
         viewportWidth: 750, // (Number) The width of the viewport.
         viewportHeight: 1624, // (Number) The height of the viewport.

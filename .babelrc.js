@@ -2,18 +2,7 @@
 const path=require("path");
 const basic_babel_config = require("@cyber-tools/preset-babel-option");
 
-
-basic_babel_config.plugins.push([require.resolve("babel-plugin-css-modules-transform"), {
-  devMode: true,
-  keepImport: true,
-  extensions: [".scss"],
-  generateScopedName: "[name]__[local]___[hash:8]",
-  extractCss: {
-    dir: "./dist/",
-    relativeRoot: "./src/",
-    filename: "[path]/[name].scss"
-  }
-}]);
+basic_babel_config.plugins.push([require("./plugins/transform_style_import")]);
 
 basic_babel_config.plugins.push([require.resolve("babel-plugin-module-resolver"), {
   baseUrl:__dirname,
@@ -43,5 +32,4 @@ basic_babel_config.plugins.push([require.resolve("babel-plugin-import"),{
 //    libraryDirectory: "es",
 //    style: true
 // },"antd-mobile"]);
-
 module.exports = basic_babel_config

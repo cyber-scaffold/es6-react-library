@@ -1,15 +1,16 @@
-.father_container {
+.father_container{
   background-color: black;
-  .child1_container {
-    display: inline;
-  }
-  .child2_container {
-    display: inline;
-  }
-  .child3_container {
-    display: inline;
-  }
-  .child4_container {
-    display: inline;
-  }
+}
+
+.child1_container {
+  display: inline;
+}
+.style__child2_container {
+  display: inline;
+}
+.style__child3_container {
+  display: inline;
+}
+.child4_container {
+  display: inline;
 }
