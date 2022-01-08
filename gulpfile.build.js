@@ -3,11 +3,19 @@ const fs=require("fs");
 const {promisify}=require("util");
 const gulp = require("gulp");
 const path = require("path");
+const clean=require("gulp-clean");
 const babel = require("gulp-babel");
 const postcss = require("gulp-postcss");
 const postcssModules=require("postcss-modules");
 const pxtoviewport = require("postcss-px-to-viewport");
 const postcss_scss=require("postcss-scss");
+
+function clean_dist(){
+  const pattern=path.resolve(__dirname,"./dist/");
+  const gulp_source=gulp.src(pattern,{sourcemaps:true,allowEmpty:true});
+  gulp_source.pipe(clean());
+  return gulp_source;
+}
 
 function static_task(){
   const watch_pattern=path.resolve(__dirname,"./src/**/*.{css,png,jpg,jpeg,gif,svg,eot,svg,ttf,woff,woff2,json}");
@@ -55,4 +63,4 @@ function postcss_task(){
     .pipe(gulp.dest("dist"))
 }
 
-exports.default=gulp.series(gulp.parallel(static_task,bebel_task),postcss_task);
+exports.default=gulp.series(clean_dist,gulp.parallel(static_task,bebel_task),postcss_task);

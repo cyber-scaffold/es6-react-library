@@ -1,12 +1,11 @@
 {
-  "name": "es6-react-library",
+  "name": "@shicheng/test-component-dev-demo",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/",
   "scripts": {
-    "remove": "del ./dist/",
-    "watch": "npm run remove && gulp --f gulpfile.watch.js",
-    "build": "npm run remove && gulp --f gulpfile.build.js"
+    "watch": "gulp --f gulpfile.watch.js",
+    "build": "gulp --f gulpfile.build.js"
   },
   "publishConfig": {
     "access": "public",
@@ -22,10 +21,11 @@
     "@babel/generator": "^7.16.7",
     "@cyber-tools/preset-babel-option": "latest",
     "@cyber-tools/spa-build-tools": "*",
+    "babel-plugin-transform-imports": "^2.0.0",
+    "babel-plugin-transform-modules": "^0.1.1",
     "babel-plugin-css-modules-transform": "1.6.2",
     "babel-plugin-import": "1.13.3",
     "babel-plugin-module-resolver": "4.1.0",
-    "del-cli": "^3.0.1",
     "eslint": "7.4.0",
     "eslint-plugin-react": "7.20.3",
     "gulp": "4.0.2",
@@ -40,13 +40,10 @@
     "postcss-px-to-viewport": "1.1.1",
     "postcss-scss": "4.0.0",
     "sass": "1.35.1",
-    "sugarss": "4.0.1",
-    "trash-cli": "3.1.0"
+    "sugarss": "4.0.1"
   },
   "dependencies": {
     "@babel/runtime": "7.13.10",
-    "babel-plugin-transform-imports": "^2.0.0",
-    "babel-plugin-transform-modules": "^0.1.1",
     "classnames": "2.2.6",
     "deep-extend": "0.6.0",
     "lodash": "4.17.19",
