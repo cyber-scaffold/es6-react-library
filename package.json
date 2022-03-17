@@ -20,7 +20,6 @@
   "devDependencies": {
     "@babel/generator": "^7.16.7",
     "@cyber-tools/preset-babel-option": "latest",
-    "@cyber-tools/spa-build-tools": "*",
     "babel-plugin-transform-imports": "^2.0.0",
     "babel-plugin-transform-modules": "^0.1.1",
     "babel-plugin-css-modules-transform": "1.6.2",
